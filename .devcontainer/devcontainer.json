@@ -1,0 +1,19 @@
+{
+    "name": "algove",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "service": "dev",
+    "workspaceFolder": "/app",
+	"shutdownAction": "stopCompose",
+    "overrideCommand": true,
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"sainnhe.everforest",
+				"ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}

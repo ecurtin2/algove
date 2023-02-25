@@ -1,0 +1,60 @@
+name: CI
+on:
+  release:
+    types: [published]
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get Tag from SHA
+        shell: bash
+        if: "startsWith(github.ref, 'refs/tags/')"
+        run: echo "TAG=${{ github.sha }}" >> $GITHUB_ENV
+
+      - name: Get Tag from git tag
+        shell: bash
+        if: "!startsWith(github.ref, 'refs/tags/')"
+        run: echo "TAG=${{ github.ref_name }}" >> $GITHUB_ENV
+
+      - name: Check Image exists in repo
+        shell: bash
+        run: |
+          set +e
+          IMAGES=$(docker compose convert --images)
+          echo "Tag = ${TAG}"
+          for IMG in $IMAGES
+          do
+            echo "Checking: ${IMG}"
+            docker manifest inspect $IMG > /dev/null;
+            if [[ $? -eq 0 ]]; then
+              echo "Error: already exists: ${IMG}"
+              exit 1
+            fi
+            echo "Ok: image does not exist: ${IMG}"
+          done
+      
+      - name: Build Image
+        shell: bash
+        run: docker compose build dev
+
+      - name: Run Checks
+        shell: bash
+        run: docker compose run --entrypoint=just dev ci
+
+      - name: Push Image
+        shell: bash
+        if: "startsWith(github.ref, 'refs/tags/')"
+        run: docker compose push
+
+      - name: Deploy Documentation
+        shell: bash
+        if: "startsWith(github.ref, 'refs/tags/')"
+        run: docker compose run --entrypoint=mkdocs dev deploy

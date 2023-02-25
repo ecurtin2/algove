@@ -1,0 +1,14 @@
+site_name: dagster_delta
+nav:
+  - Home: index.md
+  - Examples: example.ipynb
+theme:
+  name: material
+  language: 'en'
+  palette:
+    primary: 'teal'
+    accent: 'amber'
+
+
+plugins:
+  - mkdocs-jupyter
