@@ -27,6 +27,7 @@ def get_labels():
 
 @cache("parsed_data")
 def parse_data(data: str) -> pl.DataFrame:
+    # TODO: it shouldn't be necessary here to read string into memory
     f = StringIO(data)
     df = pl.read_csv(f, has_header=False)
     df.columns = [
