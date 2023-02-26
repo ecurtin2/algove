@@ -28,7 +28,7 @@ class Cache:
                     result = f(*args, **kwargs)
                     self.fs.save(result, name)
 
-                self.display(result)
+                self.display(name, result)
                 return result
 
             return wrapped

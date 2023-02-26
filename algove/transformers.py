@@ -38,7 +38,6 @@ class LabelEncoder:
         self.output_col = output_col
 
     def transform(self, df: pl.DataFrame) -> pl.DataFrame:
-        print(self.vals)
         mapping = {c: i for i, c in enumerate(self.vals)}
         return df.with_columns(
             pl.col(self.col).map_dict(mapping).alias(self.output_col)
