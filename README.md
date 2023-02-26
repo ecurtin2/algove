@@ -25,3 +25,13 @@ seen and remove some of the footguns common to machine learning workflows.
 - Brevity (we believe explicit is better than implicit)
 - AutoML
 - distributed compute (but flexible enough to work with spark/dask if others want to implement)
+
+## Develop/Test locall in VSCode
+
+```
+git clone https://github.com/ecurtin2/algove:dev
+cd algove
+docker compose pull
+code .
+```
+Then click "Reopen in Devcontainer" when prompted.
