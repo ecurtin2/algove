@@ -1,0 +1,1 @@
+docker commpose -f ./docker-compose.yaml -f ./.github/docker-compose-overrides.yaml $@

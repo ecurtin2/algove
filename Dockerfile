@@ -1,5 +1,6 @@
 FROM python:3.11-slim
-RUN apt update && apt install git curl wget -y
+RUN apt update && apt install git curl wget -y \
+    && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p ~/bin
 RUN wget https://github.com/casey/just/releases/download/1.13.0/just-1.13.0-x86_64-unknown-linux-musl.tar.gz &&\
     tar -xzf just-1.13.0-x86_64-unknown-linux-musl.tar.gz &&\
