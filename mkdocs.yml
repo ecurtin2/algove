@@ -9,5 +9,10 @@ theme:
     primary: 'teal'
     accent: 'amber'
 
+repo_url: https://github.com/ecurtin2/algove
+repo_name: ecurtin2/algove
+edit_uri: blob/main/docs/
 plugins:
   - mkdocs-jupyter
+  - search:
+      lang: en
