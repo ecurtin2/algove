@@ -1,3 +1,9 @@
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
 [tool.poetry]
 name = "algove"
 version = "0.0.1"
@@ -6,6 +12,10 @@ authors = ["Evan Curtin"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+cattrs = "^22.2.0"
+polars = "^0.16.8"
+pyarrow = "^11.0.0"
+scikit-learn = "^1.2.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.252"
