@@ -1,4 +1,7 @@
 
+@ui:
+    streamlit run {{justfile_directory()}}/algove/streamlit_ui.py
+
 @lint:
     ruff {{justfile_directory()}}/algove
     ruff {{justfile_directory()}}/algove

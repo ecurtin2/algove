@@ -18,6 +18,7 @@ cattrs = "^22.2.0"
 polars = "^0.16.8"
 pyarrow = "^11.0.0"
 scikit-learn = "^1.2.1"
+streamlit = "^1.19.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.252"
