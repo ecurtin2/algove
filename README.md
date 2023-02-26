@@ -8,6 +8,7 @@ seen and remove some of the footguns common to machine learning workflows.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=606537234)
 
+[![CI](https://github.com/ecurtin2/algove/actions/workflows/ci.yml/badge.svg)](https://github.com/ecurtin2/algove/actions/workflows/ci.yml)
 
 ## Goals
 
