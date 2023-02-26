@@ -1,4 +1,4 @@
-site_name: dagster_delta
+site_name: algove
 nav:
   - Home: index.md
   - Examples: example.ipynb

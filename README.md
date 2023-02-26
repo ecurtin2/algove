@@ -4,6 +4,8 @@ Algove (**Algo**rithim  Alc**ove**) is a fast and light-weight framework for bui
 algorithms. It is meant to simplify and bake-in some of the best practices I have 
 seen and remove some of the footguns common to machine learning workflows.
 
+[Read the full Documentation](https://ecurtin2.github.io/algove/)
+
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=606537234)
 
 
