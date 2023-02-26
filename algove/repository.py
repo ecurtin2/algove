@@ -68,13 +68,13 @@ class LocalFS:
 
         dest = self.get_path(name, type(obj))
         dest.parent.mkdir(exist_ok=True, parents=True)
-        logger.info(f"{Status.SAVING} {dest}")
+        logger.info(f"{Status.SAVING} {name} -> {dest}")
         dest.write_bytes(to_bytes(obj))
         return obj
 
     def load(self, name: str) -> SupportedBound:
-        logger.info(f"{Status.LOADING}: {name}")
         t = self.infer_type(name)  # type: ignore[var-annotated]
         p = self.get_path(name, type=t)
+        logger.info(f"{Status.LOADING}: {name} <-- {p}")
         b = p.read_bytes()
         return from_bytes(b, t)
