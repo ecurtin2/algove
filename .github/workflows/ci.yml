@@ -16,12 +16,12 @@ jobs:
 
       - name: Get Tag from SHA
         shell: bash
-        if:  "${{ github.event_name != release }}"
+        if:  "${{ github.event_name != 'release' }}"
         run: echo "TAG=${{ github.sha }}" >> $GITHUB_ENV
 
       - name: Get Tag from Release
         shell: bash
-        if: "${{ github.event_name == release }}"
+        if: "${{ github.event_name == 'release' }}"
         run: echo "TAG=${{ github.ref }}" >> $GITHUB_ENV
 
       - name: Login to Docker Hub
