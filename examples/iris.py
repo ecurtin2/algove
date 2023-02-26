@@ -1,5 +1,5 @@
 from algove import LocalFS, download, Cache, init_logger, truncated_print, Pipeline
-from algove.transformers import FitLabelEncoder, NumpyForcer, data
+from algove.transformers import FitLabelEncoder, NumpyForcer
 import polars as pl
 from io import StringIO
 
