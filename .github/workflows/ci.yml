@@ -49,10 +49,10 @@ jobs:
         shell: bash
         run: docker compose run --entrypoint=just dev ci
 
-      - name: Push Image
-        shell: bash
-        if: "startsWith(github.ref, 'refs/tags/')"
-        run: docker compose push
+      # - name: Push Image
+      #   shell: bash
+      #   if: "startsWith(github.ref, 'refs/tags/')"
+      #   run: docker compose push
 
       - name: Deploy Documentation
         shell: bash
