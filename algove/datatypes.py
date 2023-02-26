@@ -16,7 +16,7 @@ type_to_extension: Dict[type, str] = {
 
 @singledispatch
 def to_bytes(obj: SupportedBound) -> bytes:
-    raise NotImplementedError(f"Not implemented for type {type(obj)}")
+    raise TypeError(f"Not implemented for type {type(obj)}")
 
 
 @to_bytes.register
@@ -54,6 +54,6 @@ decoders: Dict[Type[SupportedBound], Callable[[bytes], SupportedBound]] = {
 
 def from_bytes(b: bytes, t: Type[SupportedBound]) -> SupportedBound:
     if t not in decoders:
-        raise KeyError(f"Unsupported type to decode: {t}")
+        raise TypeError(f"Unsupported type to decode: {t}")
 
     return decoders[t](b)

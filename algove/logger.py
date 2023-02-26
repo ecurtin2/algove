@@ -9,7 +9,7 @@ class Status(str, Enum):
     COMPUTING = "COMPUTING"
 
 
-def init(level: str = "INFO"):
+def init(level: str = "INFO"):  # pragma: no cover
     logging.basicConfig()
     logger = logging.getLogger()
     logger.setLevel(level)

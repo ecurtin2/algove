@@ -9,6 +9,5 @@ theme:
     primary: 'teal'
     accent: 'amber'
 
-
 plugins:
   - mkdocs-jupyter

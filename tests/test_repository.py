@@ -1,6 +1,10 @@
 import pytest
 from algove.repository import LocalFS
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def test_local_get_path(local_fs: LocalFS):
     assert local_fs.get_path("thing", str).suffix == ".txt"
@@ -42,3 +46,22 @@ def test_local_fs_str_roundtrip(local_fs: LocalFS):
     obj = "stuff"
     local_fs.save(obj, "name")
     assert obj == local_fs.load("name")
+
+
+def test_repo_exists_error_if_ambiguous(local_fs: LocalFS):
+    local_fs.save("test", "name")
+    p = (local_fs.root / "name").with_suffix(".json")
+    p.write_text("hello")
+    logger.info(f"Wrote to {p}")
+    with pytest.raises(ValueError):
+        result = local_fs.exists("name")
+        logger.info(f"result = {result}")
+
+
+def test_infer_name_error_if_ambiguous(local_fs: LocalFS):
+    local_fs.save("test", "name")
+    p = (local_fs.root / "name").with_suffix(".json")
+    p.write_text("hello")
+    logger.info(f"Wrote to {p}")
+    with pytest.raises(ValueError):
+        local_fs.infer_type("name")

@@ -3,6 +3,8 @@ log_cli = true
 log_cli_level = "INFO"
 log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
 log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+addopts = "--cov=algove --cov-report term-missing --cov-fail-under=100"
+
 
 [tool.poetry]
 name = "algove"
@@ -26,6 +28,7 @@ mkdocs = "^1.4.2"
 mkdocs-material = ">=8.0.0,<9.0.0"
 mkdocs-jupyter = "^0.22.0"
 ipykernel = "^6.21.2"
+pytest-cov = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

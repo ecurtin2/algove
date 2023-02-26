@@ -2,6 +2,17 @@ from algove.datatypes import to_bytes, from_bytes
 import polars as pl
 from polars.testing import assert_frame_equal
 from datetime import datetime
+import pytest
+
+
+def test_to_bytes_unsuppored_raises():
+    with pytest.raises(TypeError):
+        to_bytes(set())
+
+
+def test_from_bytes_unsupported_raises():
+    with pytest.raises(TypeError):
+        from_bytes(bytes(), set)
 
 
 def test_to_bytes_string():
