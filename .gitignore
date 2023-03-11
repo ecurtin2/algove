@@ -1,3 +1,9 @@
+# Data
+
+algove_data
+**.sqlite
+**.parquet
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

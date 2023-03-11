@@ -61,7 +61,14 @@ def make_predictions(df: pl.DataFrame) -> pl.DataFrame:
     return df.with_columns(pred_series)
 
 
-pipeline = Pipeline("iris-demo") | get_labels | get_data | parse_data | make_train | make_predictions
+pipeline = (
+    Pipeline("iris-demo")
+    | get_labels
+    | get_data
+    | parse_data
+    | make_train
+    | make_predictions
+)
 
 streamlit_display()(pipeline.name, pipeline)
 pipeline()
