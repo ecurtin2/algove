@@ -18,6 +18,8 @@ cattrs = "^22.2.0"
 polars = "^0.16.8"
 pyarrow = "^11.0.0"
 scikit-learn = "^1.2.1"
+streamlit = "^1.19.0"
+sqlalchemy = "^2.0.5.post1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.252"
@@ -33,3 +35,11 @@ pytest-cov = "^4.0.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+warn_return_any = true
+
+[[tool.mypy.overrides]]
+module = ["sklearn.linear_model"]
+ignore_missing_imports = true
